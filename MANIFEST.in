@@ -1,0 +1,7 @@
+include README.md LICENSE SECURITY.md CHANGELOG.md requirements-dev.txt Makefile
+recursive-include examples *
+recursive-include tests *
+recursive-include .github *
+global-exclude __pycache__/*
+global-exclude *.py[cod]
+global-exclude .skillcheck/*

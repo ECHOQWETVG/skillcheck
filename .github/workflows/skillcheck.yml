@@ -1,0 +1,30 @@
+name: SkillCheck
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+  security-events: write
+
+jobs:
+  skillcheck:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install SkillCheck
+        run: python -m pip install .
+      - name: Check skill
+        working-directory: examples/hello-skill
+        run: skillcheck test . --strict --format sarif > ../../skillcheck.sarif
+      - name: Upload SARIF
+        if: always() && hashFiles('skillcheck.sarif') != '' && (github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository)
+        uses: github/codeql-action/upload-sarif@v3
+        with:
+          sarif_file: skillcheck.sarif
+          checkout_path: examples/hello-skill

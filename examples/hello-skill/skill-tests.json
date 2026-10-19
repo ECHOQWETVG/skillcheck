@@ -1,0 +1,7 @@
+{
+  "cases": [
+    {"name": "has-title", "file": "SKILL.md", "contains": ["# Hello Skill"]},
+    {"name": "has-safety-rules", "file": "SKILL.md", "contains": ["Report verification"]},
+    {"name": "no-dangerous-push", "file": "SKILL.md", "forbid": ["git push --force"]}
+  ]
+}

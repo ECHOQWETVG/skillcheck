@@ -1,0 +1,17 @@
+schema_version: 1
+name: hello-skill
+version: 0.1.0
+description: A small cross-agent skill
+license: MIT
+compatibility:
+  agents:
+    - claude-code
+    - codex
+    - cursor
+permissions:
+  shell: false
+  network: false
+  write_files: false
+entrypoints:
+  files:
+    - SKILL.md

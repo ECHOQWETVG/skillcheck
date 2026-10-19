@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "skillcheck"
+version = "0.1.0"
+description = "Static quality and security gates for cross-agent AI skills"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+authors = [{ name = "SkillCheck contributors" }]
+keywords = ["ai-agents", "skills", "mcp", "security", "github-actions"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Programming Language :: Python :: 3",
+  "Topic :: Software Development :: Quality Assurance",
+]
+
+[project.scripts]
+skillcheck = "skillcheck.cli:main"
+
+[project.urls]
+Repository = "https://github.com/ECHOQWETVG/skillcheck"
+Issues = "https://github.com/ECHOQWETVG/skillcheck/issues"
+Releases = "https://github.com/ECHOQWETVG/skillcheck/releases"
+
+[project.optional-dependencies]
+dev = [
+  "build>=1.2",
+  "pytest>=8.0",
+  "twine>=5.0",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

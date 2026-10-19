@@ -1,0 +1,27 @@
+name: Bug report
+description: Report a bug or incorrect scan result
+title: "[Bug] "
+body:
+  - type: markdown
+    attributes:
+      value: "For security vulnerabilities, use the private reporting link in SECURITY.md. Remove credentials from all examples."
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: SkillCheck version, Python version, and operating system
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to reproduce
+      description: Command and a minimal skill example without secrets
+    validations:
+      required: true
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Expected and actual behavior
+    validations:
+      required: true
